@@ -10,3 +10,5 @@ function validISBN10(isbn) {
     .reduce((k, v) => k + v);
   return isbnArray % 11 === 0;
 }
+
+module.exports = { validISBN10 };
