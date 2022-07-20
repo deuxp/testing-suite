@@ -1,8 +1,6 @@
 const { assert } = require("chai");
 const { validISBN10 } = require("../isbn");
 
-console.log({ validISBN10 });
-
 const sampleTests = [
   ["1112223339", true],
   ["048665088X", true],

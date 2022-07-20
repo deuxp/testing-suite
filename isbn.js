@@ -1,14 +1,15 @@
 function validISBN10(isbn) {
-  // input:string
-  let isbnArray = isbn
-    .split("")
-    .map((num, i) => {
-      let index = i + 1;
-      if (num === "X") index = 10;
-      return Number(index) + Number(num);
-    })
-    .reduce((k, v) => k + v);
-  return isbnArray % 11 === 0;
+  if (isbn.length !== 10) return false;
+  return (
+    [...isbn] // replaces split strings
+      .map((num, i) => {
+        if (num === "X" && i > 8) num = 10;
+        return ++i * Number(num); // ++i evaluates to i incremented by 1
+      })
+      .reduce((k, v) => k + v) %
+      11 ===
+    0
+  );
 }
 
 module.exports = { validISBN10 };
