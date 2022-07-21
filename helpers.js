@@ -3,11 +3,7 @@ const alog = item => {
   return item => {
     count += 1;
     console.log(
-      `\n-<<( ${count} )>>-\n------------------------\n${JSON.stringify(
-        item,
-        null,
-        2
-      )}`
+      `\n-------------------<( ${count} )>-\n${JSON.stringify(item, null, 2)}`
     );
   };
 };
