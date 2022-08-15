@@ -32,7 +32,7 @@ var arr2 = [1, 1, 1, 1, 1, 2]; // 2
 var arr1 = [1]; // 1
 var arr2again = [1, 2]; // 2
 
-log(countUniqueValues2(arr2));
-log(countUniqueValues2(arr5));
-log(countUniqueValues2(arr1));
-log(countUniqueValues2(arr2again));
+// log(countUniqueValues2(arr2));
+// log(countUniqueValues2(arr5));
+// log(countUniqueValues2(arr1));
+// log(countUniqueValues2(arr2again));
