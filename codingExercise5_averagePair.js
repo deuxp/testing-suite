@@ -11,16 +11,12 @@ const averagePair = (props = [], target) => {
 
   // start in the middle
   // take the avg
-    // if the avg is higher than target
-      // increment the left head lower
-    // if the avg is lower than target
-      // increment the right head higher
-  
+  // if the avg is higher than target
+  // increment the left head lower
+  // if the avg is lower than target
+  // increment the right head higher
+
   return null;
 };
 
 module.exports = { averagePair };
-
- v
-[1, 3, 3, 5, 6, 7, 10, 12, 19], 8;
-    ^
