@@ -6,21 +6,6 @@
   "scripts": {
     "test": "mocha -w"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "eslint:recommended"
-    ],
-    "files": [
-      "**/*.js"
-    ],
-    "ignorePatterns": [
-      "node_modules/*"
-    ],
-    "rules": {
-      "semi": "error"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
