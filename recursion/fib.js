@@ -1,4 +1,4 @@
-function fib(n) {
+const fib = n => {
   let a = 1; //this is what is giving the correct answer
   let b = 1;
   let c = 2;
@@ -6,7 +6,7 @@ function fib(n) {
   if (n === 1 || n === 2) return 1;
   if (n === 3) return c;
   // this function should sum a and b to c and then shift nums
-  function help(count) {
+  const help = count => {
     // base - when head > h return result
     if (count === n) return;
     // mutate the result
@@ -14,28 +14,27 @@ function fib(n) {
     a = b;
     b = c;
     help(count + 1);
-  }
+  };
   help(a);
   return a;
-}
+};
 
-// 1, 1, 2, 3, 5,
-// console.log(fib(4)); // 3
+1, 1, 2, 3, 5, console.log(fib(4)); // 3
 // fib(10); // 55
-// console.log(fib(10));
-// // fib(28) // 317811
-// console.log(fib(28));
-// // fib(35) // 9227465
-// console.log(fib(35));
+console.log(fib(10));
+// fib(28) // 317811
+console.log(fib(28));
+// fib(35) // 9227465
+console.log(fib(35));
 
 /* -------------------------------------------------------------------------- */
 /*                              The Real Solution                             */
 /* -------------------------------------------------------------------------- */
 
-function realFib(n) {
+const realFib = n => {
   if (n <= 2) return 1;
   return fib(n - 1) + fib(n - 2);
-}
+};
 
 console.log(fib(10)); // 55
 
