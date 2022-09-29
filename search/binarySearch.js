@@ -22,7 +22,7 @@ const binarySearch = (arr, target) => {
       right = middle;
     }
     if (target > arr[middle]) {
-      left = middle + 1;
+      left = middle + 1; // this has to have a +1 or the middle evauation will never be able to reslove to one. it will round down and there will be 2 items always remaining. So if the target is the last element; middle will not be able to check it.
     }
   }
   return -1;
