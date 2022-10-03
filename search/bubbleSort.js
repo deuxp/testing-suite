@@ -1,3 +1,4 @@
+const { swap } = require("../helpers");
 /*
  * Start looping from the end of the array towards the beginning with a variable called i
  *     We do this because then you can use i in the inner loop as the length.. which will shrink the comparison loop with
@@ -9,16 +10,16 @@
  * return the sorted array
  * */
 
-/** Side effect function that swaps 2 items on a given array
- * @param {[]} Array to be operated on
- * @param {num} number the index of the first item to swap with
- * @param {num} number the index of the second item to swap
- * */
-const swap = (arr, index1, index2) => {
-  let temp = arr[index1]; // save one of them
-  arr[index1] = arr[index2];
-  arr[index2] = temp;
-};
+// /** Side effect function that swaps 2 items on a given array
+//  * @param {[]} Array to be operated on
+//  * @param {num} number the index of the first item to swap with
+//  * @param {num} number the index of the second item to swap
+//  * */
+// module.export = (arr, index1, index2) => {
+//   let temp = arr[index1]; // save one of them
+//   arr[index1] = arr[index2];
+//   arr[index2] = temp;
+// };
 
 // Mutates the array
 const bubbleSort = (arr) => {
