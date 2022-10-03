@@ -7,11 +7,10 @@ const alog = (item) => {
     );
   };
 };
+const log = alog();
 
 module.exports = {
-  log() {
-    alog();
-  },
+  log,
 
   /** Side effect function that swaps 2 items on a given array
    * @param {[]} Array to be operated on
@@ -24,5 +23,3 @@ module.exports = {
     arr[index2] = temp;
   },
 };
-// const log = alog();
-// module.exports = { log };
