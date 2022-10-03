@@ -15,6 +15,7 @@ const naiveString = (string, target) => {
       for (let j = 0; j < target.length - 1; j++) {
         if (string.at(i + j) !== target.at(j)) break;
         count++;
+        // or if ('j' === target.length -1) <-- which means that the j incremented to the end without breaking - which indicates a match
       }
     }
   }
