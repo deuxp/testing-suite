@@ -1,5 +1,16 @@
 module.exports = {
-  /** Merges two sorted arrays of any length
+  /* - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - --*
+   * Returns an Array of two
+   * @param {[]} ar1 Array to be disected in half
+   * */
+  divideArray(ar1) {
+    const half = Math.floor(ar1.length / 2);
+    const left = ar1.slice(0, half);
+    const right = ar1.slice(half);
+    return [left, right];
+  },
+
+  /** Merges two sorted arrays of any length - - - - - - - - - - - - - - - - - - - -
    * @param {[]} arr1 Sorted Array to be merged with arr2
    * @param {[]} arr2 Sorted Array to be merged with arr1
    * */
@@ -11,7 +22,6 @@ module.exports = {
     while (leftHead !== arr1.length || rightHead !== arr2.length) {
       const left = arr1.at(leftHead);
       const right = arr2.at(rightHead);
-
       if (right < left || left === undefined) {
         result.push(right);
         rightHead++;
@@ -23,7 +33,8 @@ module.exports = {
     }
     return result;
   },
-  /** Side effect function that swaps 2 items on a given array
+
+  /** Side effect function that swaps 2 items on a given array - - - - - - - - - - - - - - - - - - - -
    * @param {[]} Array to be operated on
    * @param {num} number the index of the first item to swap with
    * @param {num} number the index of the second item to swap
