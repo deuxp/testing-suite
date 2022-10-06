@@ -1,18 +1,3 @@
-// returns the an array of the remaining elements from the longer of the two arrays
-// if two arrays are the same length, an empty array is returned
-const suffixOfTwo = (ar1, ar2) => {
-  const result = [];
-  if (ar1.length > ar2.length) {
-    result.push(ar1.slice(ar2.length));
-  }
-  if (ar1.length < ar2.length) {
-    result.push(ar2.slice(ar1.length));
-  }
-  return result;
-};
-
-// console.log(suffixOfTwo([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6])); // [5,6]
-
 // This only merges two sorted arrays.
 const merge = (arr1, arr2) => {
   const result = [];
@@ -40,9 +25,9 @@ const merge = (arr1, arr2) => {
 // console.log(merge([1, 3, 5], [2, 4, 6]));
 console.log(merge([1, 3, 5, 7, 8], [2, 4, 6]));
 
-const alog = item => {
+const alog = (item) => {
   let count = 0;
-  return item => {
+  return (item) => {
     count += 1;
     console.log(
       `\n-------------------<( ${count} )>-\n${JSON.stringify(item, null, 2)}`
