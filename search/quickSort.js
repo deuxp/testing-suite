@@ -17,29 +17,48 @@
 // Pseudo Code //
 ////////////////
 
-/*
- * 1. Write a Pivot Helper which arranges elements in an array on either side of a pivot
- *   a. Takes in an Array as the parameter
- *   b. Then rearrange elements in the array so that all values less than the pivot are moved to the
- *      left, and all values greater than the pivot are to the right of the pivot.
- *      The order on either side does not matter
- *   c. This should be done in place. Do not create a new array
- *   d. Returns the index of the pivot
- * 2.
- * */
+/**
+ * 1. call the pivot helper on the array
+ * 2. recursively call the pivot helper on the right and left side,
+ * 3. using the returned partition index to divide and conquer
+ */
 
-const { swap, pivot } = require("../helpers");
+const { pivot } = require("../helpers");
 
-const quickSort = (arr) => {
-  let partition = pivot(arr);
-  swap(arr, partition, 0);
-  let left = quickSort(arr.slice(0, partition));
-  let right = quickSort(arr.slice(partition));
+const divideAndConquer = arr => {
   if (arr.length <= 1) return arr;
-  return left.concat([arr[partition]].concat(right));
+  let partition = pivot(arr);
+  let left = quickSort(arr.slice(0, partition));
+  // partition + 1 since the arr is altered to have the 'middle' number
+  // in its proper index position
+  let right = quickSort(arr.slice(partition + 1));
+  let middle = [arr[partition]];
+  // pass up the stack one Array
+  return left.concat(middle.concat(right));
 };
+/**
+ * The above implementation works, but its space complexity is growing with each callstack
+ * We want to sort in place. In order to achieve this we must use the partition
+ * index to delimit left and right sides and treat them like HEADs pointing to
+ * data instead of creating new smaller arrays each time..
+ * that way you are just passing up the same array,
+ * a little more sorted than the last time it went in,
+ * until you get to the bottom: 1 item: ie., the left side is equal to the right side
+ */
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    //left        start  end
+    quickSort(arr, left, pivotIndex - 1); // -1 to end before the sorted partition
+    //right          start         end
+    quickSort(arr, pivotIndex + 1, right); // +1 to start after the sorted partition
+  }
+  return arr;
+};
+console.log(quickSort([2, 3, 1, 7, 6, 4, 8, 5]));
 
-// console.log(quickSort([2, 3, 1]));
-let a = [5, 2, 4, 8, 1, 7, 3];
-console.log(pivot(a)); // return 4; [2, 4, 1, 3, 5, 7, 8]
-console.log(a);
+/**
+ * The same partially sorted array is being passed to every recursive call in the stack
+ * That is how it is able to pass up an array sorted in place in a divide and conquer
+ * recursive strategy with a space complexity of O(log n)
+ */
