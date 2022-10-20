@@ -62,3 +62,6 @@ console.log(quickSort([2, 3, 1, 7, 6, 4, 8, 5]));
  * That is how it is able to pass up an array sorted in place in a divide and conquer
  * recursive strategy with a space complexity of O(log n)
  */
+
+
+// right on
