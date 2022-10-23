@@ -1,5 +1,3 @@
-const { log } = require("./helpers");
-
 const countUniqueValues = arr => {
   if (arr === []) return 0;
   let i = 0;
@@ -19,7 +17,7 @@ const countUniqueValues = arr => {
 
 const countUniqueValues2 = arr => {
   let i = 0;
-  for (var j = 1; j <= arr.length; j++) {
+  for (let j = 1; j <= arr.length; j++) {
     if (arr[i] !== arr[j]) {
       i++;
       arr[i] = arr[j];
@@ -27,10 +25,10 @@ const countUniqueValues2 = arr => {
   }
   return i;
 };
-var arr5 = [1, 1, 1, 1, 3, 3, 3, 4, 4, 7, 7, 7, 7, 7, 5]; // 5
-var arr2 = [1, 1, 1, 1, 1, 2]; // 2
-var arr1 = [1]; // 1
-var arr2again = [1, 2]; // 2
+// const arr5 = [1, 1, 1, 1, 3, 3, 3, 4, 4, 7, 7, 7, 7, 7, 5]; // 5
+// const arr2 = [1, 1, 1, 1, 1, 2]; // 2
+// const arr1 = [1]; // 1
+// const arr2again = [1, 2]; // 2
 
 // log(countUniqueValues2(arr2));
 // log(countUniqueValues2(arr5));

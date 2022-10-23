@@ -1,8 +1,7 @@
 ////////////
 // Intro //
 //////////
-
-/*
+/**
  * Exploits the fact that arrays of 1 or 0 are already sorted
  *
  * Works by selecting one element (called the 'pivot' or 'partition') and
@@ -11,8 +10,7 @@
  * The runtime of quick sort depends in part on how one selects the pivot
  * Ideally, the pivot should be chosen so that it's roughly the median value in the data set you are sorting
  * You can chose the first element to be the pivot while you are learning, but there is a consequence to the runtime
- * */
-
+ */
 //////////////////
 // Pseudo Code //
 ////////////////
@@ -25,7 +23,7 @@
 
 const { pivot } = require("../helpers");
 
-const divideAndConquer = arr => {
+const divideAndConquerQuickSort = (arr) => {
   if (arr.length <= 1) return arr;
   let partition = pivot(arr);
   let left = quickSort(arr.slice(0, partition));
@@ -56,12 +54,10 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
   return arr;
 };
 console.log(quickSort([2, 3, 1, 7, 6, 4, 8, 5]));
-
 /**
  * The same partially sorted array is being passed to every recursive call in the stack
  * That is how it is able to pass up an array sorted in place in a divide and conquer
  * recursive strategy with a space complexity of O(log n)
  */
-
 
 // right on

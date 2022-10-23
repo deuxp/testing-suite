@@ -1,4 +1,4 @@
-function validISBN10(isbn) {
+const validISBN10 = isbn => {
   if (isbn.length !== 10) return false;
   return (
     [...isbn] // replaces split strings
@@ -10,6 +10,6 @@ function validISBN10(isbn) {
       11 ===
     0
   );
-}
+};
 
 module.exports = { validISBN10 };
