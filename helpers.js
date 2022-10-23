@@ -20,6 +20,8 @@ module.exports = {
     return [left, right];
   },
 
+  range = (start, stop, step) => Array.from({length: stop - start / step +1}, (_, i) => i + (start * step))
+
   /** Merges two sorted arrays of any length - - - - - - - - - - - - - - - - - - - -
    * @param {arr1:Array} Sorted Array to be merged with arr2
    * @param {arr2:Array} Sorted Array to be merged with arr1
@@ -76,5 +78,16 @@ module.exports = {
     }
     swap(arr, start, swapIdx);
     return swapIdx;
+  },
+
+  ////////////////////////
+  // RadixSort Helpers //
+  //////////////////////
+
+  getDigit(num, digit) {
+    const shiftTargetBelowDecimal = num / 10 ** (digit + 1);
+    const clearWholeNumbers =
+      shiftTargetBelowDecimal - Math.floor(shiftTargetBelowDecimal);
+    return Math.floor(clearWholeNumbers * 10);
   },
 };
