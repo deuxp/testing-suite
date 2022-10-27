@@ -71,7 +71,9 @@ const radixSort = arr => {
       let targetBucket = getDigit(number, k);
       buckets[targetBucket].push(number);
     }
-    result = buckets.reduce((k, v) => k.concat(v));
+    // result = buckets.reduce((k, v) => k.concat(v));
+    // OR
+    result = [].concat(...buckets);
   }
   return result;
 };
